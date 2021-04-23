@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import * as Yup from 'yup';
-import {Link} from 'react-router-dom';
-import Styled from 'styled-components';
+// import {Link} from 'react-router-dom';
+// import Styled from 'styled-components';
 import { boolean } from 'yup/lib/locale';
 
 const formShcema = Yup.object().shape({
@@ -11,8 +11,8 @@ const formShcema = Yup.object().shape({
         .required('Name is required')
         .min(2, 'Name must be at least 2 characters long'),
     size: Yup
-        .boolean()
-        .oneOf([true], 'Must select a size for pizza'),
+       .string()
+       .required('Must select size'),
     pepperoni: Yup
         .boolean(),
     mushrooms: Yup
@@ -53,6 +53,34 @@ function Form() {
 
     const [user, setUser] = useState({setForm})
 
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        const newUser = {
+            name: form.name,
+            size: form.size,
+            pepperoni: form.pepperoni,
+            mushrooms: form.mushrooms,
+            sausage: form.sausage,
+            jalapenos: form.jalapenos,
+            specialInstruction: form.specialInstruction,
+        }
+    }
+
+    axios.post('https://reqres.in/api/orders')
+        .then((res) => {
+            setUser({
+                name: form.name,
+                size: form.size,
+                pepperoni: form.pepperoni,
+                mushrooms: form.mushrooms,
+                sausage: form.sausage,
+                jalapenos: form.jalapenos,
+                specialInstruction: form.specialInstruction,
+            })
+        })
+        .catch((err) => 
+        console.log(err))
 
 }
 
