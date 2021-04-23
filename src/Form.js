@@ -78,10 +78,16 @@ function Form() {
                 jalapenos: form.jalapenos,
                 specialInstruction: form.specialInstruction,
             })
+            .catch((err) => 
+            console.log(err))
         })
-        .catch((err) => 
-        console.log(err))
 
+    const change = evt => {
+        const { checked, value, name, type } = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        setError(name, valueToUse)
+        setForm({...form, [name]: valueToUse})
+    }
 }
 
 export default Form;
