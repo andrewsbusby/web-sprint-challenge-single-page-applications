@@ -113,7 +113,7 @@ function Form() {
                 <Link to ='/Pizza'>Pizza</Link>
             </div>
             <FormStyle>
-            <form onSubmit={submit}>
+            <form>
                 <div>
                     <label>Name:
                         <input onChange={change} value={form.name} type='text' name='name'/>
