@@ -1,6 +1,6 @@
 import React from "react";
 // import {Route, Switch} from 'react-router-dom';
-import From from './Form';
+import Form from './Form';
 
 const App = () => {
   return (
