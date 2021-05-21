@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
 import Styled from 'styled-components';
-import { boolean } from 'yup/lib/locale';
+
 
 const formShcema = Yup.object().shape({
     name: Yup
