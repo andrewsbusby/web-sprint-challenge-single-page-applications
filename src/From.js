@@ -77,7 +77,7 @@ function Form() {
         }
     }
 
-    axios.post('https://reqres.in/api/orders')
+    axios.post('https://reqres.in/api/orders', user)
         .then((res) => {
             setUser({
                 name: form.name,
@@ -151,7 +151,7 @@ function Form() {
                         <input onChange={change} value={form.specialInstruction} name='specialIntructions' type='text' />
                     </label>
                 </div>
-                <button name='button'>Add to Order</button>
+                <button name='button' onSubmit={onSubmit}>Add to Order</button>
             </form>
             </FormStyle>
             </div>
